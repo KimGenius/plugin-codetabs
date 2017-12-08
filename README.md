@@ -49,7 +49,7 @@ var React = require('react')
 ```
 
 
-### Usage
+### Show Path Parameter
 
 Path Parameter를 표현하려면 parameter를 {} 안에 넣어주면 됩니다.
 
