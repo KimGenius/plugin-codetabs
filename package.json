@@ -1,5 +1,5 @@
 {
-  "name": "gitbook-plugin-codetabs",
+  "name": "gitbook-plugin-path-params-codetabs",
   "version": "1.0.0",
   "description": "Multiple languages code blocks for GitBook",
   "main": "index.js",
