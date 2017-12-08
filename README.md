@@ -49,4 +49,13 @@ var React = require('react')
 ```
 
 
+### Usage
+
+Path Parameter를 표현하려면
+
+```md
+{% codetabs name="CURL", type="bash" -%}
+curl -X POST http://genius.genie.ggg/abc/{userId}/{HelloCount}/hey
+{% endcodetabs %}
+```
 
