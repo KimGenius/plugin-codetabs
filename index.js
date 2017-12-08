@@ -19,11 +19,13 @@ function createTab(block, i, isActive) {
     @return {String}
 */
 function createTabBody(block, i, isActive) {
+  block.body = block.body
+    .replace(/{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">&nbsp;')
+    .replace(/}/gi, '&nbsp;</span></var>')
+
   return '<div class="tab' + (isActive ? ' active' : '') + '" data-codetab="' + i + '">' +
     '<pre><span class="lang-' + (block.kwargs.type || block.kwargs.name) + '">' +
-    '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">' +
     escape(block.body) +
-    '</span></var>' +
     '</span></pre></div>';
 }
 

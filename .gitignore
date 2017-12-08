@@ -26,8 +26,12 @@ node_modules
 
 # vim swapfile
 *.swp
+
+# jetbrains IDEA files
 .idea/inspectionProfiles/
 .idea/modules.xml
 .idea/plugin-codetabs.iml
 .idea/workspace.xml
+
+# package lock (scissor paper)
 package-lock.json
