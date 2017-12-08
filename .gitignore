@@ -26,3 +26,8 @@ node_modules
 
 # vim swapfile
 *.swp
+.idea/inspectionProfiles/
+.idea/modules.xml
+.idea/plugin-codetabs.iml
+.idea/workspace.xml
+package-lock.json

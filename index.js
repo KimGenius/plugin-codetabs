@@ -8,7 +8,7 @@ var escape = require('escape-html');
     @return {String}
 */
 function createTab(block, i, isActive) {
-    return '<div class="tab' + (isActive? ' active' : '') + '" data-codetab="' + i + '">' + block.kwargs.name + '</div>';
+  return '<div class="tab' + (isActive ? ' active' : '') + '" data-codetab="' + i + '">' + block.kwargs.name + '</div>';
 }
 
 /*
@@ -19,47 +19,50 @@ function createTab(block, i, isActive) {
     @return {String}
 */
 function createTabBody(block, i, isActive) {
-    return '<div class="tab' + (isActive? ' active' : '') + '" data-codetab="' + i + '"><pre><code class="lang-' + (block.kwargs.type || block.kwargs.name) + '">'
-        + escape(block.body) +
-    '</code></pre></div>';
+  return '<div class="tab' + (isActive ? ' active' : '') + '" data-codetab="' + i + '">' +
+    '<pre><span class="lang-' + (block.kwargs.type || block.kwargs.name) + '">' +
+    '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">' +
+    escape(block.body) +
+    '</span></var>' +
+    '</span></pre></div>';
 }
 
 module.exports = {
-    book: {
-        assets: './assets',
-        css: [
-            'codetabs.css'
-        ],
-        js: [
-            'codetabs.js'
-        ]
-    },
+  book: {
+    assets: './assets',
+    css: [
+      'codetabs.css'
+    ],
+    js: [
+      'codetabs.js'
+    ]
+  },
 
-    blocks: {
-        codetabs: {
-            blocks: ['language'],
-            process: function(parentBlock) {
-                var blocks = [parentBlock].concat(parentBlock.blocks);
-                var tabsContent = '';
-                var tabsHeader = '';
+  blocks: {
+    codetabs: {
+      blocks: ['language'],
+      process: function (parentBlock) {
+        var blocks = [parentBlock].concat(parentBlock.blocks);
+        var tabsContent = '';
+        var tabsHeader = '';
 
-                blocks.forEach(function(block, i) {
-                    var isActive = (i == 0);
+        blocks.forEach(function (block, i) {
+          var isActive = (i == 0);
 
-                    if (!block.kwargs.name) {
-                        throw new Error('Code tab requires a "name" property');
-                    }
+          if (!block.kwargs.name) {
+            throw new Error('Code tab requires a "name" property');
+          }
 
-                    tabsHeader += createTab(block, i, isActive);
-                    tabsContent += createTabBody(block, i, isActive);
-                });
+          tabsHeader += createTab(block, i, isActive);
+          tabsContent += createTabBody(block, i, isActive);
+        });
 
 
-                return '<div class="codetabs">' +
-                    '<div class="codetabs-header">' + tabsHeader + '</div>' +
-                    '<div class="codetabs-body">' + tabsContent + '</div>' +
-                '</div>';
-            }
-        }
+        return '<div class="codetabs">' +
+          '<div class="codetabs-header">' + tabsHeader + '</div>' +
+          '<div class="codetabs-body">' + tabsContent + '</div>' +
+          '</div>';
+      }
     }
+  }
 };
