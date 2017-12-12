@@ -41,7 +41,7 @@ module.exports = {
   },
 
   blocks: {
-    codetabs: {
+    pathCodetabs: {
       blocks: ['language'],
       process: function (parentBlock) {
         var blocks = [parentBlock].concat(parentBlock.blocks);
