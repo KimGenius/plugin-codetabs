@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-path-params-codetabs",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Multiple languages code blocks for GitBook & path parameters",
   "main": "index.js",
   "scripts": {
