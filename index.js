@@ -24,7 +24,7 @@ function createTabBody(block, i, isActive, name) {
     let str = ''
     let isFind = false
     for (let i = 0; i + 1 < block.body.length; i++) {
-      if (block.body.charAt(i) === '/' && block.body.charAt(i + 1) === '{') {
+      if ((block.body.charAt(i) === '/' || block.body.charAt(i) === '=') && block.body.charAt(i + 1) === '{') {
         i++;
         isFind = true
         str += '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">'
