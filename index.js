@@ -18,14 +18,17 @@ function createTab(block, i, isActive) {
     @param {Boolean}
     @return {String}
 */
-function createTabBody(block, i, isActive) {
-  block.body = block.body
-    .replace(/{{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">')
-    .replace(/}}/gi, '</span></var>')
-  block.body = block.body
-    .replace(/{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">{')
-    .replace(/}/gi, '}</span></var>')
-
+function createTabBody(block, i, isActive, name) {
+  if(name === 'Sample') {
+    block.body = block.body
+      .replace(/{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">')
+      .replace(/}/gi, '</span></var>')
+  } else {
+    block.body = block.body
+      .replace(/{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">{')
+      .replace(/}/gi, '}</span></var>')
+  }
+  
   return '<div class="tab' + (isActive ? ' active' : '') + '" data-codetab="' + i + '">' +
     '<pre><span class="lang-' + (block.kwargs.type || block.kwargs.name) + '">' +
     (block.body) +
@@ -59,7 +62,7 @@ module.exports = {
           }
 
           tabsHeader += createTab(block, i, isActive);
-          tabsContent += createTabBody(block, i, isActive);
+          tabsContent += createTabBody(block, i, isActive, block.kwargs.name);
         });
 
 
