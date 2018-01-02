@@ -22,6 +22,7 @@ function createTabBody(block, i, isActive) {
   block.body = block.body
     .replace(/{{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">')
     .replace(/}}/gi, '</span></var>')
+  block.body = block.body
     .replace(/{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">{')
     .replace(/}/gi, '}</span></var>')
 
