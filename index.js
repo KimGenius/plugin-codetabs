@@ -23,7 +23,7 @@ function createTabBody(block, i, isActive, name) {
     var idx = 0
     var str = ''
     var isFind = false
-    for (let i = 0; i + 1 < block.body.length; i++) {
+    for (var i = 0; i + 1 < block.body.length; i++) {
       if ((block.body.charAt(i) === '/' || block.body.charAt(i) === '=') && block.body.charAt(i + 1) === '{') {
         i++;
         isFind = true
