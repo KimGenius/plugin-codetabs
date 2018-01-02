@@ -20,9 +20,9 @@ function createTab(block, i, isActive) {
 */
 function createTabBody(block, i, isActive, name) {
   if(name === 'Sample') {
-    let idx = 0
-    let str = ''
-    let isFind = false
+    var idx = 0
+    var str = ''
+    var isFind = false
     for (let i = 0; i + 1 < block.body.length; i++) {
       if ((block.body.charAt(i) === '/' || block.body.charAt(i) === '=') && block.body.charAt(i + 1) === '{') {
         i++;
@@ -36,6 +36,7 @@ function createTabBody(block, i, isActive, name) {
       }
       str += block.body.charAt(i)
     }
+    block.body = str
   }
   block.body = block.body
     .replace(/{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">{')
