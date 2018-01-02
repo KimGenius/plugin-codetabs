@@ -22,6 +22,8 @@ function createTabBody(block, i, isActive) {
   block.body = block.body
     .replace(/{/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">{')
     .replace(/}/gi, '}</span></var>')
+    .replace(/\[/gi, '<var><span style="color:#ec407a;font-weight:bold;font-style:italic;">')
+    .replace(/\]/gi, '</span></var>')
 
   return '<div class="tab' + (isActive ? ' active' : '') + '" data-codetab="' + i + '">' +
     '<pre><span class="lang-' + (block.kwargs.type || block.kwargs.name) + '">' +
