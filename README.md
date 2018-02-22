@@ -14,10 +14,9 @@ Adds the plugin to your `book.json`, then run `gitbook install` if you are build
 }
 ```
 
-### Show Path Parameter
+### Highlight Path Parameter
 
-Path Parameter를 표현하려면 {% codetabs %} 를 {% pathCodetabs %} 로 변경하고 parameter를 {} 안에 넣어주면 됩니다.
-
+In order to highlight path parameters, change `{% codetabs %}` to `{% pathCodetabs %}`, then cover up the parameter with `{}`. 
 ```md
 {% pathCodetabs name="CURL", type="bash" -%}
 curl -X POST http://genius.genie.ggg/abc/{userId}/{HelloCount}/hey
