@@ -22,6 +22,7 @@ In order to highlight path parameters, change `{% codetabs %}` to `{% pathCodeta
 curl -X POST http://genius.genie.ggg/abc/{userId}/{HelloCount}/hey
 {% endcodetabs %}
 ```
+[Highlight Path Parameter Example](https://kimgenius.gitbooks.io/adsf/content/path-params-codetabs.html)
 
 ### Using codetabs
 ```md
