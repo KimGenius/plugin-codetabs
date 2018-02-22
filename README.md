@@ -1,4 +1,4 @@
-# codetabs
+# path param codetabs
 
 Include multiple languages code block to your GitBook (for example when documenting an API).
 
@@ -10,25 +10,32 @@ Adds the plugin to your `book.json`, then run `gitbook install` if you are build
 
 ```js
 {
-    "plugins": ["codetabs"]
+    "plugins": ["path-params-codetabs"]
 }
 ```
 
-### Usage
+### Show Path Parameter
 
+Path Parameter를 표현하려면 {% codetabs %} 를 {% pathCodetabs %} 로 변경하고 parameter를 {} 안에 넣어주면 됩니다.
+
+```md
+{% pathCodetabs name="CURL", type="bash" -%}
+curl -X POST http://genius.genie.ggg/abc/{userId}/{HelloCount}/hey
+{% endcodetabs %}
+```
+
+### Using codetabs
 ```md
 
 This is a code block with tabs for each languages:
 
-{% codetabs name="Python", type="py" -%}
+{% pathCodetabs name="Python", type="py" -%}
 msg = "Hello World"
 print msg
 {%- language name="JavaScript", type="js" -%}
 var msg = "Hello World";
 console.log(msg);
-{%- language name="HTML", type="html" -%}
-<b>Hello World</b>
-{%- endcodetabs %}
+{%- endpathCodetabs %}
 ```
 
 ### Escaping templating syntax
@@ -47,17 +54,3 @@ Here is some angular and react code
 var React = require('react')
 {%- endcodetabs %}
 ```
-
-
-### Show Path Parameter
-
-Path Parameter를 표현하려면 {% codetabs %} 를 {% pathCodetabs %} 로 변경하고 parameter를 {} 안에 넣어주면 됩니다.
-
-```md
-{% pathCodetabs name="CURL", type="bash" -%}
-curl -X POST http://genius.genie.ggg/abc/{userId}/{HelloCount}/hey
-{% endcodetabs %}
-```
-
-**test**
-`test`
